@@ -54,52 +54,47 @@ public class myFileReader {
 		//String roomCenters[] = new String[max];
 		String roomNames[] = new String[max];
     	
-    	/// FILE READING FOR ROOMS /// 
+    		/// FILE READING FOR ROOMS /// 
 
-        String textFile = "inputText.txt";
-        BufferedReader br = null;
-        String line = "";
-        String splitter = " ";
-        int roomCount = 0;
+       	 	String textFile = "inputText.txt";
+        	BufferedReader br = null;
+        	String line = "";
+        	String splitter = " ";
+        	int roomCount = 0;
 		
         
         
-        try {
+        	try {
 
-            br = new BufferedReader(new FileReader(textFile));
-            while ((line = br.readLine()) != null) {
+           		br = new BufferedReader(new FileReader(textFile));
+            	 	while ((line = br.readLine()) != null) {
             
-                // split by space
-                String[] roomName = line.split(splitter);
+                		// split by space
+                		String[] roomName = line.split(splitter);
                 
-            	roomNames[roomCount] = roomName[2];
-    			roomCount++;
-    			
-    		
+            			roomNames[roomCount] = roomName[2];
+    				roomCount++;
                 
-                // writing to new file all the room names
-                try
-        	    {
-        	        String path = "output.txt";
-        	        File file2 = new File(path);
-        	        FileWriter fileWriter = new FileWriter(file2,true);
-        	        BufferedWriter bufferFileWriter  = new BufferedWriter(fileWriter);
+               	 		// writing to new file all the room names
+                		try{
+        	        		String path = "output.txt";
+        	        		File file2 = new File(path);
+        	        		FileWriter fileWriter = new FileWriter(file2,true);
+        	        		BufferedWriter bufferFileWriter  = new BufferedWriter(fileWriter);
         	  
-        	        //fileWriter.append(roomName[2] + "\n");
-        	        bufferFileWriter.close();
-        	  
-        	    }catch(Exception ex)
-        	    {
-        	        System.out.println(ex);
-        	    }
+        	        		//fileWriter.append(roomName[2] + "\n");
+        	        		bufferFileWriter.close();
+					
+        	 		}catch(Exception ex)
+        	    		{
+        	        		System.out.println(ex);
+        	    		}
 
-                // gets the second value from the file, which is the room name
-                // print statement is just for testing purposes
-                
-               // System.out.println("roomName: " + roomName[2] + "");
-                
-                //addToArray(roomName[2], roomNames);
-            }
+                	// gets the second value from the file, which is the room name
+                	// print statement is just for testing purposes
+                	
+			// System.out.println("roomName: " + roomName[2] + "");
+            	}
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -119,11 +114,11 @@ public class myFileReader {
         return getRoomNames(roomNames);
     	}
 
-	/**
-	  * Function to print the room names, mainly used for testing purposes
-	  *
-	  * @return returns void
-	  */
+  /**
+   * Function to print the room names, mainly used for testing purposes
+   *
+   * @return returns void
+   */
 	
    // testing purposes
    private static void spitOutNames() {
@@ -134,14 +129,14 @@ public class myFileReader {
 	}
    
    /**
-	  * Function the return the total number of lines in the text file provided 
-	  * by the OCR output text, used to initialize the size of the array storing
-	  * the room names
-	  *
-	  * @return returns as an integer the total number of lines in the input text file
-	  */
+    * Function the return the total number of lines in the text file provided  
+    * by the OCR output text, used to initialize the size of the array storing
+    * the room names
+    *
+    * @return returns as an integer the total number of lines in the input text file
+    */
 
-	// gets the number of lines in an input text file
+   // gets the number of lines in an input text file
     public static int getLineCount() {
 		
 		BufferedReader reader = null;
@@ -163,12 +158,12 @@ public class myFileReader {
 		return lines;
 	}
     
-    /**
-	  * Function to return the array storing the room names read from the OCR input
-	  * @param names an array of strings containing the names read by the OCR
-	  * 
-	  * @return returns void
-	  */
+       /**
+	* Function to return the array storing the room names read from the OCR input
+	* @param names an array of strings containing the names read by the OCR
+	* 
+	* @return returns void
+	*/
     
 	public static String[] getRoomNames(String[] names){
 		for ( int i =0; i < getLineCount();i++ ){
